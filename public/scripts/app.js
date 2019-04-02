@@ -29,7 +29,7 @@ var Counter = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var count = Number(localStorage['count']);
-      this.setState(function () {
+      if (!isNaN(count)) this.setState(function () {
         return { count: count };
       });
     }
