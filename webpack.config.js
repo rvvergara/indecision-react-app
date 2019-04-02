@@ -22,4 +22,8 @@ module.exports = {
       },
     ],
   },
+  devServer: {
+    contentBase: path.resolve(__dirname, 'public'),
+  },
+  devtool: 'cheap-module-eval-source-map',
 };
