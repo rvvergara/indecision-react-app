@@ -5,16 +5,9 @@ import Action from './Action';
 import Header from './Header';
 
 export default class Indecision extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      options: [],
-    };
-    this.handleDeleteOptions = this.handleDeleteOptions.bind(this);
-    this.handleAddOption = this.handleAddOption.bind(this);
-    this.handlePick = this.handlePick.bind(this);
-    this.handleDeleteSingleOption = this.handleDeleteSingleOption.bind(this);
-  }
+  state = {
+    options: [],
+  };
 
   componentDidMount() {
     const json = localStorage.getItem('options');
@@ -32,23 +25,23 @@ export default class Indecision extends React.Component {
     }
   }
 
-  handlePick() {
+  handlePick = () => {
     const { options } = this.state;
     const index = Math.floor(Math.random() * options.length);
     alert(options[index]);
-  }
+  };
 
-  handleDeleteOptions() {
+  handleDeleteOptions = () => {
     this.setState(() => ({ options: [] }));
-  }
+  };
 
-  handleDeleteSingleOption(option) {
+  handleDeleteSingleOption = option => {
     this.setState(prevState => ({
       options: prevState.options.filter(x => x !== option),
     }));
-  }
+  };
 
-  handleAddOption(option) {
+  handleAddOption = option => {
     const { options } = this.state;
 
     if (!option) {
@@ -60,7 +53,7 @@ export default class Indecision extends React.Component {
     this.setState(prevState => ({
       options: [...prevState.options, option],
     }));
-  }
+  };
 
   render() {
     const subtitle = 'Put your life in the hands of a computer';
