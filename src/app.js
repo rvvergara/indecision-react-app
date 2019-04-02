@@ -1,4 +1,6 @@
-import { cool, hot } from './playground/utils';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Indecision from './components/Indecision';
+import './css/style.css';
 
-console.log(cool());
-console.log(hot());
+ReactDOM.render(<Indecision />, document.getElementById('app'));

@@ -1,4 +1,4 @@
 const cool = () => 'cool';
-const hot = () => 'hot';
+export default () => 'hot chocolate';
 
-export { cool, hot };
+export { cool };
