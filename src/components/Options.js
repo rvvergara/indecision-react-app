@@ -18,7 +18,7 @@ const Options = (props) => {
           <Option
             option={option}
             key={i}
-            id={i}
+            id={i + 1}
             handleDeleteSingleOption={handleDeleteSingleOption}
           />
         ))}
