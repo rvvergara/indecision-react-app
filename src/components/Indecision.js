@@ -3,10 +3,12 @@ import AddOption from './AddOption';
 import Options from './Options';
 import Action from './Action';
 import Header from './Header';
+import OptionModal from './OptionModal';
 
 export default class Indecision extends React.Component {
   state = {
     options: [],
+    selectedOption: undefined,
   };
 
   componentDidMount() {
@@ -28,7 +30,7 @@ export default class Indecision extends React.Component {
   handlePick = () => {
     const { options } = this.state;
     const index = Math.floor(Math.random() * options.length);
-    alert(options[index]);
+    this.setState(() => ({ selectedOption: options[index] }));
   };
 
   handleDeleteOptions = () => {
@@ -55,9 +57,14 @@ export default class Indecision extends React.Component {
     }));
   };
 
+  handleClearSelectedOption = () => {
+    this.setState(() => ({
+      selectedOption: undefined,
+    }));
+  };
   render() {
     const subtitle = 'Put your life in the hands of a computer';
-    const { options } = this.state;
+    const { options, selectedOption } = this.state;
     return (
       <div>
         <Header subtitle={subtitle} />
@@ -68,6 +75,10 @@ export default class Indecision extends React.Component {
           handleDeleteSingleOption={this.handleDeleteSingleOption}
         />
         <AddOption handleAddOption={this.handleAddOption} />
+        <OptionModal
+          selectedOption={selectedOption}
+          handleClearSelectedOption={this.handleClearSelectedOption}
+        />
       </div>
     );
   }
