@@ -70,12 +70,14 @@ export default class Indecision extends React.Component {
         <Header subtitle={subtitle} />
         <div className="container">
           <Action options={options} handlePick={this.handlePick} />
-          <Options
-            options={options}
-            handleDeleteOptions={this.handleDeleteOptions}
-            handleDeleteSingleOption={this.handleDeleteSingleOption}
-          />
-          <AddOption handleAddOption={this.handleAddOption} />
+          <div className="widget">
+            <Options
+              options={options}
+              handleDeleteOptions={this.handleDeleteOptions}
+              handleDeleteSingleOption={this.handleDeleteSingleOption}
+            />
+            <AddOption handleAddOption={this.handleAddOption} />
+          </div>
         </div>
         <OptionModal
           selectedOption={selectedOption}

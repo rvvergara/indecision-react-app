@@ -5,8 +5,12 @@ const Option = (props) => {
   return (
     <li id={id}>
       {option}
-      <button type="button" onClick={e => handleDeleteSingleOption(option)}>
-        X
+      <button
+        type="button"
+        onClick={e => handleDeleteSingleOption(option)}
+        className="button button--link"
+      >
+        Remove
       </button>
     </li>
   );

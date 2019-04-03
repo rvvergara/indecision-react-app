@@ -4,7 +4,12 @@ const Action = (props) => {
   const { options, handlePick } = props;
   return (
     <div>
-      <button type="button" disabled={options.length === 0} onClick={handlePick}>
+      <button
+        className="big-button"
+        type="button"
+        disabled={options.length === 0}
+        onClick={handlePick}
+      >
         What To Do?
       </button>
     </div>
